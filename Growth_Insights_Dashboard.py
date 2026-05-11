@@ -121,7 +121,7 @@ cac_fig.add_trace(go.Scatter(
     fillcolor="rgba(245,197,24,0.05)",
     hovertemplate="$%{y}<extra>CAC</extra>",
 ))
-cac_fig.add_hline(y=180, line_color=f"{RED}60", line_width=1, line_dash="dot",
+cac_fig.add_hline(y=180, line_color="rgba(240,82,82,0.38)", line_width=1, line_dash="dot",
                   annotation_text="target", annotation_font_color=MUTED,
                   annotation_font_size=9)
 cac_fig.update_layout(**base_layout(height=200))
@@ -262,6 +262,7 @@ def time_tab(label, active=False):
 
 # ── App ───────────────────────────────────────────────────────────────────────
 app = dash.Dash(__name__, title="Growth Insights Dashboard — Startup.OS")
+server = app.server
 
 app.index_string = """<!DOCTYPE html>
 <html>
@@ -523,4 +524,4 @@ app.layout = html.Div([
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port=8053)
+    app.run(debug=False, host="0.0.0.0", port=5000)
