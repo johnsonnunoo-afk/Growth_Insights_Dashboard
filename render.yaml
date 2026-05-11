@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: growth-insights-dashboard
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn --bind 0.0.0.0:$PORT Growth_Insights_Dashboard:server
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.0
